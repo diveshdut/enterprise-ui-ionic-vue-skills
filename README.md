@@ -96,7 +96,8 @@ directory, or copied into an existing `./agents/skills/` location when needed.
    the four skill folders into your existing `.agents/skills/` directory.
 2. Move `AGENTS.md` from this repository into the project root when you are
    using Codex or Cursor.
-3. Place `CLAUDE.md` at the project root when you are using Claude Code.
+3. Move `CLAUDE.md` from its current location to the project root when you are
+   using Claude Code.
 
 ## Skill Order
 
