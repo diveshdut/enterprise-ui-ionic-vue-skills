@@ -92,12 +92,11 @@ directory, or copied into an existing `./agents/skills/` location when needed.
 
 ## How To Use
 
-1. Load the repo instructions first.
-2. Read the most relevant skill for the task.
-3. Use Figma or other design artifacts when available.
-4. If no design is available, select the closest enterprise workflow pattern
-   first, then design and implement from that pattern.
-5. Keep Ionic UI mobile-compatible, reusable, and easy to maintain.
+1. Check out this repository into your project as `.agents/skills/`, or copy
+   the four skill folders into your existing `.agents/skills/` directory.
+2. Move `AGENTS.md` from this repository into the project root when you are
+   using Codex or Cursor.
+3. Place `CLAUDE.md` at the project root when you are using Claude Code.
 
 ## Skill Order
 
