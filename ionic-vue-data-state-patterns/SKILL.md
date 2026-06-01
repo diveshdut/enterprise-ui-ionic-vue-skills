@@ -34,8 +34,12 @@ when the workflow requires it.
   of templates.
 - Use stores or service layers to expose view-ready state and explicit
   actions; keep components responsible for interaction and presentation.
-- Model loading, errors, empty results, saved/unsaved state and consequential
-  actions deliberately.
+- Model loading, empty, no-results, partial data, stale data, validation
+  errors, saved/unsaved state, success, failure, progress, completion, and
+  consequential actions deliberately.
+- Model access and risk states when relevant: permission denied, read-only
+  mode, offline/sync pending, conflicts, audit-required actions, and
+  destructive confirmation.
 - Add persistence, offline databases, device/session identity, job polling or
   simulation state only for workflows that require those capabilities.
 - Do not copy backend-specific searches, scheduling contracts or allocation
@@ -46,4 +50,5 @@ when the workflow requires it.
 - State which existing architecture is preserved or selected.
 - Identify API/store boundaries and consequential side effects.
 - Identify persistence, offline, session or background-job behavior when used.
-- Confirm the UI communicates loading, errors, progress and completion.
+- Confirm the UI communicates loading, empty/no-results, errors, permissions,
+  offline/sync, progress, success and completion.

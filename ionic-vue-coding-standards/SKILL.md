@@ -25,8 +25,9 @@ maintain, and works on mobile without depending on elaborate custom styling.
    - If an exact Figma frame is provided, inspect that frame first. Load
      `enterprise-workflow-design` only when the design is incomplete,
      ambiguous, missing responsive/states guidance, or needs broader
-     HotWax/Ionic reference selection. If that skill is not available, inspect
-     the exact Figma frame directly when Figma tools are available.
+     HotWax/Ionic reference selection, Selection Taxonomy, or Design Decision
+     Layer guidance. If that skill is not available, inspect the exact Figma
+     frame directly when Figma tools are available.
    - If the design comes from another tool, ask for or inspect screenshots,
      exported images/PDFs/SVGs, specs, copied layer details, screen recordings,
      or annotated wireframes before coding.
@@ -43,6 +44,9 @@ maintain, and works on mobile without depending on elaborate custom styling.
   `ion-list`, `ion-item`, `ion-card`, `ion-searchbar`, `ion-chip`,
   `ion-badge`, `ion-select`, `ion-modal`, `ion-alert`, `ion-footer`,
   `ion-fab`, `ion-segment`, and related controls.
+- When `enterprise-workflow-design` is loaded, use its Design Decision Layer
+  and Component Usage Matrix to choose the first Ionic components for the UX
+  pattern before adding custom components or view-local styling.
 - Design UI that Ionic can implement naturally. Avoid interactions that
   require fragile positioning, excessive overrides, or bespoke controls when
   a simpler Ionic composition satisfies the task.
@@ -82,9 +86,9 @@ maintain, and works on mobile without depending on elaborate custom styling.
    new styling or components.
 5. Move repeated layout or state presentation into shared CSS or a shared
    component instead of duplicating view-local markup and styles.
-6. Validate hierarchy, labels, empty/loading/error states, disabled behavior,
-   action reachability, vertical density and responsive behavior before
-   finishing.
+6. Validate hierarchy, labels, loading, empty, no-results, error, disabled,
+   permission/read-only, offline/sync, progress/completion, action
+   reachability, vertical density and responsive behavior before finishing.
 
 ## Supporting References
 

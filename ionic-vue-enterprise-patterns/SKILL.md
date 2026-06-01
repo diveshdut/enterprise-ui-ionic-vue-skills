@@ -25,7 +25,10 @@ isolation.
 3. Load `enterprise-workflow-design` only when the provided design is
    incomplete, ambiguous, missing states or responsive variants, or when the
    task requires selecting, comparing, extending, or validating against the
-   broader Ionic 8 Material UI Kit or HotWax workflow references.
+   broader Ionic 8 Material UI Kit or HotWax workflow references. When loaded,
+   use its Selection Taxonomy, Pattern Cards, and Design Decision Layer to
+   choose the workflow family, Ionic component starting points, required
+   states, and responsive treatment.
 4. If `enterprise-workflow-design` is unavailable, do not block. Continue by
    inspecting the supplied Figma frame or other design artifact directly when
    Figma or file-access tools are available.
@@ -43,13 +46,16 @@ isolation.
    goal to the closest pattern family in
    [references/workflow-patterns.md](references/workflow-patterns.md), then
    design the UX and implement the UI from that pattern.
-4. Select an Ionic-native mobile flow, especially for store operations.
-5. Use Figma/reference evidence or user-provided design artifacts for
+4. Use the Selection Taxonomy and Design Decision Layer from
+   `enterprise-workflow-design` when available; otherwise mirror the same
+   decision sequence from local workflow references.
+5. Select an Ionic-native mobile flow, especially for store operations.
+6. Use Figma/reference evidence or user-provided design artifacts for
    consistency when accessible, but do not block implementation merely because
    a new workflow lacks a dedicated frame.
-6. State the pattern family selected and any genuinely new interaction
+7. State the pattern family selected and any genuinely new interaction
    introduced.
-7. If no design artifact exists and Figma access is unavailable, design from
+8. If no design artifact exists and Figma access is unavailable, design from
    requirements using the documented workflow patterns, then implement with
    `ionic-vue-coding-standards`.
 
@@ -61,6 +67,11 @@ isolation.
 - Prefer workflow compositions already supported by Ionic controls: lists,
   cards, search, chips, segments, alerts, modals, popovers, footers and
   focused detail pages.
+- Map UX patterns to Ionic components before implementation: filters/results
+  begin with searchbar, chips, segments and list/item patterns; master-detail
+  begins with cards, tabs, accordions and toolbars; scan workflows begin with
+  buttons, Ionicons, modals and inputs; configuration workflows begin with
+  cards, toggles, selects and modals.
 - For mobile find/list screens, keep search and query controls lightweight:
   compact chips or small outline controls should carry filters and sort, while
   full-width buttons should remain reserved for primary workflow actions.
@@ -92,4 +103,8 @@ isolation.
   artifact, or documented workflow precedent.
 - Confirm the essential mobile flow is supported.
 - Identify reused Ionic/shared components and any shared styling additions.
+- Confirm required states are covered: loading, empty, no results, partial or
+  stale data, saving, success, validation error, destructive confirmation,
+  permission/read-only, offline/sync pending, conflict, audit-required, and
+  responsive long-text behavior.
 - Note any new pattern that should later be indexed for reuse.

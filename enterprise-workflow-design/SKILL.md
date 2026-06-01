@@ -23,10 +23,11 @@ MCP, for live Figma file inspection or Figma editing.
 - Ask the user to enable the Figma connector or provide screenshots, exports,
   specs, copied layer details, SVG, PDF, PNG, or other usable design artifacts
   when live access is unavailable.
-- Use the local workflow index only to identify likely Figma reference links
-  and workflow families when live Figma access is unavailable. Do not treat it
-  as a local copy of the designs, layers, components, or UI patterns, and note
-  that the live Figma file may have changed.
+- Use the local enterprise workflow index only to identify likely Figma
+  reference links, component families, workflow canvases, and reusable UI
+  patterns when live Figma access is unavailable. Do not treat it as a local
+  copy of the designs, layers, components, or UI patterns, and note that the
+  live Figma file may have changed.
 - Do not create or modify Figma content unless Figma tools are available and
   the user has authorized the exact new work or edit.
 - If the user then provides an exported or uploaded design artifact, use
@@ -40,31 +41,39 @@ MCP, for live Figma file inspection or Figma editing.
 2. Read [references/design-code-mapping.md](references/design-code-mapping.md)
    when you need to move from a design frame to the first GitHub code files to
    inspect.
-3. Open the Figma `Enterprise Workflow Index` first, then inspect the live
-   reference frames most closely matching the user's task.
+3. Open the current Figma enterprise workflow index first, then inspect the
+   live pages, sections, and reference frames most closely matching the user's
+   task.
 4. Inspect foundations when introducing UI controls or visual decisions:
-   Ionic Components, Ionicons, and semantic colors.
+   Ionic Components, Ionicons, and Colors.
 5. Select references by user goal rather than product name. A new domain may
    reuse a known interaction pattern even when its data is different.
-6. Identify what is being reused before designing:
+6. Use the Selection Taxonomy when the user describes a screen type such as a
+   work queue, record investigation view, detail/timeline screen, setup form,
+   rule builder, scheduler, or bulk upload/error-correction flow.
+7. Use the Design Decision Layer to connect the selected UX pattern to Ionic
+   components, required states, responsive behavior, and interaction rules
+   before inventing new UI.
+8. Identify what is being reused before designing:
    - Shell and navigation pattern.
    - Search, filtering, list, or detail pattern.
    - Action, status, progress, and exception treatment.
    - Desktop, tablet, or mobile responsive treatment.
-7. Build the new design with existing components and interaction compositions
+9. Build the new design with existing components and interaction compositions
    wherever they fit. Introduce a new pattern only when the workflow cannot be
    expressed clearly through the references.
-8. Reuse references by adapting their interaction composition and information
+10. Reuse references by adapting their interaction composition and information
    hierarchy, not by blindly copying the exact visual layout.
-9. State which Figma references informed the design when delivering a new
+11. State which Figma references informed the design when delivering a new
    screen or implementation recommendation.
 
 ## Figma Editing
 
 - When writing designs in Figma, use the Figma skills/tools available in the
   current environment and follow their required inspection and editing steps.
-- Do not create replacement components, icons, or color conventions until the
-  existing Ionic Components, Ionicons, and Colors references have been checked.
+- Do not create replacement components, icons, color conventions, or
+  workflow-specific UI conventions until the existing Ionic Components,
+  Ionicons, Colors, and enterprise workflow references have been checked.
 - After creating or updating Figma screens, inspect the screenshot for vertical
   waste, cramped controls, text overlap, and action hierarchy before delivery.
 - Treat the live Figma file as the source of truth for visuals. This skill is a
@@ -79,9 +88,14 @@ MCP, for live Figma file inspection or Figma editing.
   example.
 - Preserve useful patterns such as filter-and-results workspaces,
   master-detail views, store execution task flows, configuration cards, status
-  chips, progress states, and contained modals.
+  chips, progress states, contained modals, empty states, and mobile drill-down
+  flows.
+- Cover non-happy-path states before delivery: loading, empty, no results,
+  partial data, stale data, saving, success, validation error, destructive
+  confirmation, permission denied, read-only, offline/sync pending, conflict,
+  audit-required, and responsive long-text behavior.
 - For a genuinely new interaction pattern, design it deliberately and propose
-  adding it to the `Enterprise Workflow Index` for future reuse.
+  adding it to the Figma enterprise workflow index for future reuse.
 
 ## Deliverable Check
 
@@ -92,7 +106,6 @@ Before finalizing a new enterprise UI design or UI implementation plan:
 - Note which GitHub repo and first code files would be inspected next when the
   task moves from design to implementation.
 - Note reused components and compositions.
+- Note required states and responsive behavior from the Design Decision Layer.
 - Call out any new pattern introduced and why existing patterns were
   insufficient.
-- For manufacturing work, consult the production-run mapping in the reference
-  file before inventing create, search, detail, execution, or scheduling views.

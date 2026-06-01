@@ -8,7 +8,7 @@ another design artifact into Ionic/Vue implementation.
 
 | Design / Workflow | GitHub Repo | First Files To Inspect | Notes |
 | --- | --- | --- | --- |
-| Enterprise Workflow Index | none | `figma-workflow-index.md` | Navigation and taxonomy only, not an implementable screen. |
+| Figma Enterprise Workflow Index | none | `figma-workflow-index.md` | Navigation, workflow categories, selection taxonomy, pattern cards, Design Decision Layer, component usage matrix, state checklist, and decision rules. Not an implementable screen. |
 | Fulfillment / store-floor execution | [hotwax/fulfillment](https://github.com/hotwax/fulfillment) | `src/App.vue` and the relevant queue/detail view | Queue/detail composition, mobile execution, packing, completion states. |
 | Receiving / PO receiving | [hotwax/receiving](https://github.com/hotwax/receiving) | `src/views/ShipmentDetails.vue`, `src/views/PurchaseOrderDetail.vue` | Scan, quantity progress, receive-all, PO detail, completion flows. |
 | Cycle count / inventory session work | [hotwax/inventory-count](https://github.com/hotwax/inventory-count) | `src/views/Count.vue`, `src/views/SessionCountDetail.vue`, `src/views/CountProgressReview.vue` | Session-based handheld work, variance review, offline/device behavior. |
