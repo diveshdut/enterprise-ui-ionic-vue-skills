@@ -60,6 +60,11 @@ maintain, and works on mobile without depending on elaborate custom styling.
 - Build every new UI to be mobile compatible. Treat handheld use as primary
   for store-operation flows such as receiving, fulfillment, counting,
   scanning, picking, packing, and transfers.
+- On mobile find/list screens, prefer compact chips or small outline controls
+  for filters and sort. Do not make routine query controls look like primary
+  full-width actions.
+- Use compact status chips or badges in list rows, headers and summaries unless
+  status itself is the main workflow decision.
 - Remove duplicate information before implementing. Display each status,
   identifier, quantity, date, or message where it has the most
   decision-making value rather than repeating it across a screen.
@@ -78,7 +83,8 @@ maintain, and works on mobile without depending on elaborate custom styling.
 5. Move repeated layout or state presentation into shared CSS or a shared
    component instead of duplicating view-local markup and styles.
 6. Validate hierarchy, labels, empty/loading/error states, disabled behavior,
-   action reachability and responsive behavior before finishing.
+   action reachability, vertical density and responsive behavior before
+   finishing.
 
 ## Supporting References
 

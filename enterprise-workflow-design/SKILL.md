@@ -54,7 +54,9 @@ MCP, for live Figma file inspection or Figma editing.
 7. Build the new design with existing components and interaction compositions
    wherever they fit. Introduce a new pattern only when the workflow cannot be
    expressed clearly through the references.
-8. State which Figma references informed the design when delivering a new
+8. Reuse references by adapting their interaction composition and information
+   hierarchy, not by blindly copying the exact visual layout.
+9. State which Figma references informed the design when delivering a new
    screen or implementation recommendation.
 
 ## Figma Editing
@@ -63,6 +65,8 @@ MCP, for live Figma file inspection or Figma editing.
   current environment and follow their required inspection and editing steps.
 - Do not create replacement components, icons, or color conventions until the
   existing Ionic Components, Ionicons, and Colors references have been checked.
+- After creating or updating Figma screens, inspect the screenshot for vertical
+  waste, cramped controls, text overlap, and action hierarchy before delivery.
 - Treat the live Figma file as the source of truth for visuals. This skill is a
   navigation guide and may become stale if Figma content changes.
 - If the referenced Figma file cannot be accessed, report the limitation and

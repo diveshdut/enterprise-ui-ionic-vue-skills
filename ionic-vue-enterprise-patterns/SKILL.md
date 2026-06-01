@@ -61,6 +61,12 @@ isolation.
 - Prefer workflow compositions already supported by Ionic controls: lists,
   cards, search, chips, segments, alerts, modals, popovers, footers and
   focused detail pages.
+- For mobile find/list screens, keep search and query controls lightweight:
+  compact chips or small outline controls should carry filters and sort, while
+  full-width buttons should remain reserved for primary workflow actions.
+- Use compact status chips or badges unless status itself is the main decision
+  surface. Do not let status treatment consume more space than the next action,
+  exception, or progress summary it supports.
 - Keep store-operation tasks mobile complete and touch friendly. Treat desktop
   layouts as enhancement rather than a prerequisite for execution.
 - Use configuration workspaces only when users must compare, order or edit

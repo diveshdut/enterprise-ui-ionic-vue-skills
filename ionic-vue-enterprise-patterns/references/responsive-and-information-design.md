@@ -22,6 +22,26 @@ Start a screen by identifying:
 Place information in that order unless the workflow supplies a stronger
 reason.
 
+## Find And List Screens
+
+- Put search first, compact query controls second, and results third.
+- Use compact chips, small outline controls, or sheet/popover triggers for
+  filter and sort controls on mobile.
+- Reserve full-width buttons for primary workflow actions, not routine filters
+  or sorting.
+- Keep selected filter values visible when they affect the result set.
+- Preserve result density on mobile so users can compare several records
+  without excessive scrolling.
+
+## Status And Progress Density
+
+- Use compact status chips or badges in lists, headers, and task summaries.
+- Avoid oversized status cards unless status is the main workflow decision.
+- When progress matters more than raw status, pair the compact status with the
+  smallest useful progress or quantity summary.
+- Do not let status treatment consume more space than the action or decision it
+  supports.
+
 ## Deduplicate Content
 
 - Show a record identifier where it supports recognition or navigation, not in
