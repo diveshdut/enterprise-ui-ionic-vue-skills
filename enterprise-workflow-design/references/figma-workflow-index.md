@@ -73,6 +73,26 @@ Use foundations before inventing controls, icons, or visual state treatments.
 | Toolbar | [12898:0](https://www.figma.com/design/1wantteXXUlzPRYev1X5gr/Ionic-8-Material-UI-Kit--Community---Community-?node-id=12898-0&t=hEXHxO7yI4T4m4pV-1) | Page headers, title bars, back/menu controls, and toolbar slots. |
 | Header | [30622:115320](https://www.figma.com/design/1wantteXXUlzPRYev1X5gr/Ionic-8-Material-UI-Kit--Community---Community-?node-id=30622-115320&t=hEXHxO7yI4T4m4pV-1) | Text headers and subheader tokens for section labeling. |
 
+### Concrete UI Element Examples
+
+Use these live examples before designing the same UI element. They show how
+the Ionic component appears inside workflow context, not only in the foundation
+page.
+
+| UI Element | Example Node | Use For |
+| --- | --- | --- |
+| Alert | [Alert / Basic](https://www.figma.com/design/1wantteXXUlzPRYev1X5gr/Ionic-8-Material-UI-Kit--Community---Community-?node-id=28335-91961&t=hEXHxO7yI4T4m4pV-1) | Confirmation, warning, destructive, or blocking workflow decisions. |
+| Popover | [Popover](https://www.figma.com/design/1wantteXXUlzPRYev1X5gr/Ionic-8-Material-UI-Kit--Community---Community-?node-id=28335-91925&t=hEXHxO7yI4T4m4pV-1) | Compact overflow, contextual menus, and field-adjacent options. |
+| Modal | [Time zone modal](https://www.figma.com/design/1wantteXXUlzPRYev1X5gr/Ionic-8-Material-UI-Kit--Community---Community-?node-id=29987-73331&t=hEXHxO7yI4T4m4pV-1) | Focused create/edit flows and short interruption surfaces. |
+| List | [Time zone modal list](https://www.figma.com/design/1wantteXXUlzPRYev1X5gr/Ionic-8-Material-UI-Kit--Community---Community-?node-id=29987-73331&t=hEXHxO7yI4T4m4pV-1) | Lists inside modals or contained workflow surfaces. |
+| Card with action item | [Card with actions/Item](https://www.figma.com/design/1wantteXXUlzPRYev1X5gr/Ionic-8-Material-UI-Kit--Community---Community-?node-id=29987-73987&t=hEXHxO7yI4T4m4pV-1) | Cards whose actions are represented as Ionic Item rows. |
+| Card with button | [Card with actions/Button](https://www.figma.com/design/1wantteXXUlzPRYev1X5gr/Ionic-8-Material-UI-Kit--Community---Community-?node-id=29987-73986&t=hEXHxO7yI4T4m4pV-1) | Cards with explicit primary/secondary button actions. |
+| Dropdown select | [Select / Resting](https://www.figma.com/design/1wantteXXUlzPRYev1X5gr/Ionic-8-Material-UI-Kit--Community---Community-?node-id=17110-55551&t=hEXHxO7yI4T4m4pV-1) | Select fields in configuration and setup forms. |
+| Card with chips | [Card with chips](https://www.figma.com/design/1wantteXXUlzPRYev1X5gr/Ionic-8-Material-UI-Kit--Community---Community-?node-id=16672-61816&t=hEXHxO7yI4T4m4pV-1) | Cards that summarize selected filters, tags, or compact metadata. |
+| List card | [List Card](https://www.figma.com/design/1wantteXXUlzPRYev1X5gr/Ionic-8-Material-UI-Kit--Community---Community-?node-id=20989-74336&t=hEXHxO7yI4T4m4pV-1) | Card-contained lists and grouped operational details. |
+| Input | [Input](https://www.figma.com/design/1wantteXXUlzPRYev1X5gr/Ionic-8-Material-UI-Kit--Community---Community-?node-id=23447-90154&t=hEXHxO7yI4T4m4pV-1) | Form fields, labels, values, helper/error handling, and compact edit rows. |
+| Date time picker | [Date time picker](https://www.figma.com/design/1wantteXXUlzPRYev1X5gr/Ionic-8-Material-UI-Kit--Community---Community-?node-id=22803-78245&t=hEXHxO7yI4T4m4pV-1) | Date/time selection and scheduling workflows. |
+
 ## Workflow Categories
 
 Use these categories as the primary way to choose a workflow reference.
@@ -209,6 +229,37 @@ workflow view.
 | Action states | Saving, success, validation error, destructive confirm, undo path. |
 | Access and risk | Permission denied, read-only mode, offline/sync pending, conflict detected, audit required. |
 | Responsive states | Mobile drill-down, desktop dense list, tablet split view, keyboard/scanner input, long text wrapping. |
+
+### Component Authenticity Guidance
+
+Use the live Component Authenticity Guidance area in the
+[Workflow Design Decision Layer](https://www.figma.com/design/1wantteXXUlzPRYev1X5gr/Ionic-8-Material-UI-Kit--Community---Community-?node-id=34935-1223&t=hEXHxO7yI4T4m4pV-1)
+before creating or revising enterprise screens.
+
+Checklist:
+
+- Visible controls must be real Ionic instances or valid component slots.
+- Component-owned labels stay inside the component layer tree.
+- A hidden Ionic instance plus custom visible overlay does not count as reuse.
+- Audit visible primitives outside instances before delivery.
+- Direct text is only for standalone titles, counts, notes, and guidance.
+
+Element rules:
+
+- Searchbar: use the Searchbar instance with text inside component content.
+- Filters and sort: use compact Chips or small outline controls.
+- Buttons: use the Button instance label layer.
+- Cards: use the Card surface/content pattern.
+- Items and results: use Item start/end slots.
+- Inputs and selects: use Input/Select labels and values.
+- Status: use Badge or Chip with semantic color.
+- Toolbar: use Toolbar slots and Ionicons.
+- Direct text: never use direct labels for component-owned text.
+
+Before saying done, inspect screenshots, check visible component instance
+counts, list legitimate direct text layers, verify hidden instances are only
+internal inactive variants, and name the inspected workflow references and
+component foundations.
 
 ### Workflow Anatomy
 
