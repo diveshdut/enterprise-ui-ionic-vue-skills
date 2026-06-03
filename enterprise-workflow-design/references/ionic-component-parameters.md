@@ -37,8 +37,11 @@ Use the smallest live component composition that satisfies the layout.
 Use the focused component contract references below:
 
 - [Actions](component-parameters/actions.md)
-- [Content and data](component-parameters/content-and-data.md)
-- [Navigation and shells](component-parameters/navigation-and-shells.md)
+- [Content](component-parameters/content.md)
+- [Navigation](component-parameters/navigation.md)
+
+Legacy aliases still exist for older links, but the shorter files are the
+preferred load targets.
 
 ## Instance Swap Audit
 

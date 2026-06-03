@@ -110,8 +110,8 @@ with node `34926:1223` before exploring individual screens or components.
 9. When placing or resizing an Ionic component, read
    [references/ionic-component-parameters.md](references/ionic-component-parameters.md)
    [references/component-parameters/actions.md](references/component-parameters/actions.md)
-   [references/component-parameters/content-and-data.md](references/component-parameters/content-and-data.md)
-   [references/component-parameters/navigation-and-shells.md](references/component-parameters/navigation-and-shells.md)
+   [references/component-parameters/content.md](references/component-parameters/content.md)
+   [references/component-parameters/navigation.md](references/component-parameters/navigation.md)
    for the component's variants, auto-layout, sizing, slot, color, and label
    contract. Always refer to these parameter contracts first before building a
    design with that component. If a component is not documented there yet,
