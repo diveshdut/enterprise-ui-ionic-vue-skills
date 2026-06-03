@@ -59,6 +59,15 @@ isolation.
    requirements using the documented workflow patterns, then implement with
    `ionic-vue-coding-standards`.
 
+### When Business Screens Are Shared As Reference
+
+- Distinguish whether the shared screen is a `data reference`, a `UI reference`,
+  or both.
+- For data references, extract the real field set, states, terminology, and
+  workflow logic without inheriting legacy layout or input treatment.
+- Keep the chosen Ionic workflow pattern intact unless the user explicitly asks
+  to mirror the referenced UI.
+
 ## Required Principles
 
 - Load `ionic-vue-coding-standards` for implementation and UI review work.
@@ -75,6 +84,9 @@ isolation.
 - For mobile find/list screens, keep search and query controls lightweight:
   compact chips or small outline controls should carry filters and sort, while
   full-width buttons should remain reserved for primary workflow actions.
+- In create/edit forms, reflect the actual input type in the UI. Do not let
+  text, numeric, autocomplete, and multiline fields all inherit select or
+  dropdown styling just because a nearby field uses a picker pattern.
 - Use compact status chips or badges unless status itself is the main decision
   surface. Do not let status treatment consume more space than the next action,
   exception, or progress summary it supports.
