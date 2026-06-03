@@ -113,10 +113,13 @@ with node `34926:1223` before exploring individual screens or components.
    [references/component-parameters/content.md](references/component-parameters/content.md)
    [references/component-parameters/navigation.md](references/component-parameters/navigation.md)
    for the component's variants, auto-layout, sizing, slot, color, and label
-   contract. Always refer to these parameter contracts first before building a
-   design with that component. If a component is not documented there yet,
-   inspect the live component and add the discovered contract before relying on
-   custom values.
+   contract. Then open the smallest family slice that matches the component
+   itself, such as `actions/buttons.md`, `actions/feedback.md`,
+   `content/forms.md`, or `navigation/search.md`, before building the design.
+   Always refer to these parameter contracts first before building a design
+   with that component. If a component is not documented there yet, inspect
+   the live component and add the discovered contract before relying on custom
+   values.
    If the live component or link is unavailable, use the documented contract,
    existing workflow examples, and the Figma workflow index to build the UI
    with the existing Ionic components instead of inventing custom primitives.

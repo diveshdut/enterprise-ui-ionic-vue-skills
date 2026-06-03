@@ -40,6 +40,10 @@ Use the focused component contract references below:
 - [Content](component-parameters/content.md)
 - [Navigation](component-parameters/navigation.md)
 
+Each family index points to smaller slice files like
+`actions/buttons.md`, `content/forms.md`, or `navigation/search.md`.
+Load the smallest slice that matches the component family or control first.
+
 Legacy aliases still exist for older links, but the shorter files are the
 preferred load targets.
 
