@@ -213,6 +213,10 @@ with node `34926:1223` before exploring individual screens or components.
 - In filter popovers triggered from chips, prefer concise single-select or
   short list interactions that feel contextual to the result set, not like a
   standalone form.
+- Keep this skill focused on Ionic/Figma kit behavior, not generic Figma
+  tutorials. Assume standard Auto Layout, fill behavior, text resizing, and
+  master-component mechanics are already understood unless a note changes how
+  they interact with an Ionic contract.
 - If live Figma validation is unavailable, prefer a clearly documented
   component composition from the skill references over an unverified custom
   layout.

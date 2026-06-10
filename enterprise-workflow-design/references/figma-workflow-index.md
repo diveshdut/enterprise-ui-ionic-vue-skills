@@ -12,6 +12,10 @@ This file is intentionally minimal. The live Figma index is the source of
 truth for workflow categories, reusable references, pattern selection, and
 design decision guidance.
 
+Keep generic Figma technique notes out of this file. It should point to the
+kit references, not restate standard Auto Layout, spacing, or master-component
+usage unless the live index explicitly adds a kit-specific rule.
+
 ## How To Use
 
 1. Start with the live Enterprise Workflow Index before exploring individual
