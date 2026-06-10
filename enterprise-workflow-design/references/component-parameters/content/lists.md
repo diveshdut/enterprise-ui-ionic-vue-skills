@@ -23,6 +23,21 @@ header, a divider, a spacing polygon, and repeated live Item rows.
 | Outer padding | `8` top/bottom, `0` left/right |
 | Main child | `Content` frame |
 
+### Structuring Notes
+
+Use List as the main organizer when a workflow needs several quick sections
+such as personal details, shipping addresses, saved payment methods, or other
+account-style groupings.
+
+- Keep each section as a live List or a repeated Item group instead of laying
+  out custom text blocks.
+- Use outline-style Ionicons for leading cues when the icon set already
+  provides a clean secondary/action treatment such as mail, phone, lock, or
+  location.
+- If the workflow needs horizontal browsing for a sequence such as recent
+  orders, place that content in a separate horizontal band or carousel-like
+  treatment rather than forcing the main List into a sideways layout.
+
 ### Exposed Properties
 
 The List component set exposes four editable controls:
@@ -364,6 +379,11 @@ Toggle matrix:
 | `Detail push` | `False` | Shows the disclosure chevron. |
 | `End slot` | `False` | Enables the generic end-slot region. |
 | `Secondary` | `False` | Adds the secondary text row. |
+
+Use the `Note` region for compact supplemental values such as a gift card
+balance or other inline metadata. If the same location needs an action, swap
+the note for a live button or similar control instead of drawing a custom text
+label and fake button surface.
 
 When a workflow needs a different trailing control than the default badge,
 select, or disclosure cue, swap the live control into the end slot rather than
