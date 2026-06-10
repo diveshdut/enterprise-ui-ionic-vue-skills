@@ -213,6 +213,24 @@ The live `Item / Master` instance exposes two editable controls at this level:
 These are the real instance-level toggles for this layer. The more specific
 start/end visibility controls live inside `Content / Start` and `Content / End`.
 
+### Slot Swap Behavior
+
+The Item family is designed to accept real component swaps inside its exposed
+slots. Use that flexibility when the workflow needs a more specific control
+than the default row affordance.
+
+- Swap a chip, button, or similar compact control into the live slot when the
+  inspected branch exposes that instance swap.
+- Use a date selector or other picker-style control in a slot when the row is
+  acting like a compact filter or input affordance.
+- Keep the swapped component live so its own variants, states, and sizing
+  rules remain intact.
+- Let the slot's auto-layout direction determine how the inserted control
+  grows inside the row: horizontal slot layouts expand in a row direction,
+  while vertical slot layouts expand in a column direction.
+- Do not wrap the swapped component in a custom detached shell just to mimic
+  the same behavior.
+
 ### Media Contract
 
 The Item media branch is a dedicated leading-media frame inside the row.
@@ -346,6 +364,11 @@ Toggle matrix:
 | `Detail push` | `False` | Shows the disclosure chevron. |
 | `End slot` | `False` | Enables the generic end-slot region. |
 | `Secondary` | `False` | Adds the secondary text row. |
+
+When a workflow needs a different trailing control than the default badge,
+select, or disclosure cue, swap the live control into the end slot rather than
+redrawing the region manually. Keep the inserted control as a real Ionic
+component so its own props and states remain available.
 
 Observed child layers:
 

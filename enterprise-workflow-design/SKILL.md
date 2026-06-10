@@ -170,6 +170,9 @@ with node `34926:1223` before exploring individual screens or components.
   chips, and other list-aligned form elements. If the component already
   provides the required spacing and affordance, place it directly rather than
   wrapping it in a one-off frame.
+- When an `Item` slot exposes a supported instance swap, prefer swapping in a
+  live compact control like a chip, button, or date selector instead of
+  redrawing that affordance as custom shapes and text.
 - When a live Ionic component or semantic surface already uses a published
   paint style, text style, or bound variable, preserve that linkage instead of
   copying the visible color value as a raw fill. Matching the screenshot color

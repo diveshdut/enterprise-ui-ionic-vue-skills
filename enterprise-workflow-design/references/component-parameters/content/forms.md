@@ -213,4 +213,7 @@ change the nested `Item` media and the select affordance text/icon content.
 - Edit the row labels through `Item / Content / Start`.
 - Use the Item end-content `Select` toggle and label to control the caret + value affordance.
 - Add media through the Item media variants when the row needs an icon, avatar, or thumbnail.
+- When a chip, date selector, or other custom compact control better matches
+  the workflow, swap that control into the live slot instead of drawing a
+  detached custom element.
 - Preserve the visible select affordance as a live caret-and-label group rather than a detached icon plus text.
