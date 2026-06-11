@@ -80,6 +80,10 @@ Use when the user works through a set of actionable items.
 - Surface the current item, its progress, and the next action.
 - Keep the primary action reachable without scrolling.
 - Show exceptions and blocked states before secondary metadata.
+- When each execution record carries dense operational detail plus its own CTA,
+  prefer one card per task/record over a single overloaded list card.
+- For per-record CTAs such as `Start`, use a native in-card action/footer
+  pattern rather than treating the CTA as status metadata in the row end slot.
 
 Typical building blocks:
 
@@ -95,6 +99,13 @@ Best fit when the requirement sounds like:
 - process inventory count sessions
 - work a store task queue
 - complete pending work
+
+Helpful interpretation:
+
+- Use a single list/card container when each row is mostly summary plus a light
+  next step.
+- Switch to one card per record when the row needs schedule, equipment,
+  duration, and its own action button.
 
 ### 3. Scan / Count / Quantity
 

@@ -49,16 +49,48 @@ Good:
   variants before changing styling.
 - Keep destructive, cancel, and secondary actions visually consistent with
   existing workflow examples.
+- When an action belongs to a specific card or execution unit, prefer the
+  card's native `Card / Actions` footer pattern before placing a detached
+  button elsewhere on the page.
+- For a task-level primary action such as `Start`, prefer the native positive
+  footer action in the card rather than a chip, select affordance, or floating
+  page-level control.
 
 Bad:
 - Leave placeholder text such as `Button Label` in the layer tree.
 - Overlay a direct text label on top of a button instance.
 - Make cancel/secondary actions visually hang outside the button group.
+- Use a status chip or select trigger as a stand-in for a primary CTA when the
+  workflow actually needs a button-like action.
 
 Example:
 - If the visible button says `Create production run`, the Button instance
   should contain that label in its internal label layer. There should not be a
   separate direct text layer named `Create production run` above the button.
+- In task execution cards, a single `Start` action should live inside the
+  native `Card / Actions` footer as the visible positive action. Do not fake it
+  with a badge, chip, or `Select` label in the row end slot.
+
+## In-Card Task Actions
+
+Good:
+- When each task has dense metadata plus its own CTA, split tasks into separate
+  cards instead of forcing several heavy task rows into one list card.
+- Keep one primary action per task card when the operator needs a clear next
+  step, such as `Start`.
+- Let the card footer own the task action placement and spacing.
+
+Bad:
+- Pack several task records with detailed scheduling data and independent CTAs
+  into one compact list if the result becomes visually noisy.
+- Place the task CTA in the item end slot when the action is more important
+  than the supporting status metadata.
+
+Example:
+- For production-run task execution, a multi-card layout with one task per
+  card and a footer `Start` action is clearer than a single crowded list card
+  once the task details include sequence, routing task name, fixed asset,
+  schedule, setup time, and run time.
 
 ## FAB
 
