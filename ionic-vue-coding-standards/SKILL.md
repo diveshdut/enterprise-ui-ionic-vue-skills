@@ -36,6 +36,11 @@ maintain, and works on mobile without depending on elaborate custom styling.
      pattern before coding. If `enterprise-workflow-design` is unavailable,
      still use the available Figma/design artifact or documented enterprise
      pattern sources directly, rather than blocking implementation.
+6. Before choosing a detailed UI treatment for forms, filters, search,
+   validation, or action placement, inspect the closest referenced HotWax repo
+   evidence for that workflow family. Use local app examples only as a
+   secondary consistency check, not as the primary evidence source when the
+   shared skill references already point to a relevant HotWax application.
 
 ## Non-Negotiable Rules
 
@@ -44,6 +49,10 @@ maintain, and works on mobile without depending on elaborate custom styling.
   `ion-list`, `ion-item`, `ion-card`, `ion-searchbar`, `ion-chip`,
   `ion-badge`, `ion-select`, `ion-modal`, `ion-alert`, `ion-footer`,
   `ion-fab`, `ion-segment`, and related controls.
+- Do not literalize design annotations such as `Required`, redlines, helper
+  notes, spacing callouts, or explanatory labels into UI elements until they
+  have been mapped to an Ionic-native control pattern and checked against
+  shared HotWax evidence.
 - When `enterprise-workflow-design` is loaded, use its Design Decision Layer
   and Component Usage Matrix to choose the first Ionic components for the UX
   pattern before adding custom components or view-local styling.
@@ -61,6 +70,11 @@ maintain, and works on mobile without depending on elaborate custom styling.
   Use semantic containers with shared CSS Grid or Flexbox rules.
 - Prefer semantic theme variables and shared design tokens over raw colors,
   shadows, spacing, radii, or visual constants.
+- Use custom CSS for structural layout needs that Ionic does not provide
+  directly, such as repeated list-row composition, split detail rows, sticky
+  action areas, or responsive workspaces. Do not add CSS only to chase
+  screenshot-level fidelity when Ionic defaults already satisfy hierarchy and
+  usability.
 - Build every new UI to be mobile compatible. Treat handheld use as primary
   for store-operation flows such as receiving, fulfillment, counting,
   scanning, picking, packing, and transfers.
@@ -82,11 +96,13 @@ maintain, and works on mobile without depending on elaborate custom styling.
 2. Select the smallest Ionic-native composition that supports that action.
 3. Decide the mobile flow first for store operations; add desktop enhancement
    only after the narrow layout remains complete.
-4. Reuse existing components, global classes and theme tokens before adding
+4. Inspect the closest HotWax evidence for the chosen workflow before locking
+   detailed field treatment, validation cues, or action layout.
+5. Reuse existing components, global classes and theme tokens before adding
    new styling or components.
-5. Move repeated layout or state presentation into shared CSS or a shared
+6. Move repeated layout or state presentation into shared CSS or a shared
    component instead of duplicating view-local markup and styles.
-6. Validate hierarchy, labels, loading, empty, no-results, error, disabled,
+7. Validate hierarchy, labels, loading, empty, no-results, error, disabled,
    permission/read-only, offline/sync, progress/completion, action
    reachability, vertical density and responsive behavior before finishing.
 

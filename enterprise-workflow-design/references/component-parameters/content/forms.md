@@ -92,6 +92,60 @@ text layers.
 - For heavily reused branches, document the node-level layout contract too:
   width, height, layout mode, region order, alignment, and surface treatment.
 
+### Required Field Treatment
+
+Use this decision order when a field is mandatory:
+
+1. Confirm whether the design artifact is showing shipped UI or only an
+   annotation/spec cue.
+2. Inspect the nearest workflow usage and the closest HotWax code example for
+   the same form pattern.
+3. Prefer a label-level required cue such as a red asterisk when the evidence
+   shows a visible required indicator.
+4. Prefer normal field labels plus submit-time validation feedback when the
+   shared evidence does not show a persistent required marker.
+5. Do not convert a design annotation like `Required` into a badge or chip
+   unless the live component usage explicitly supports that as the real UI.
+
+Observed HotWax create-form patterns commonly use:
+
+- `ion-input` or `ion-select` with a label and a small red required asterisk.
+- Submit-time validation, toast, or error feedback to enforce missing required
+  values.
+- Plain labels without decorative `Required` pills or badges.
+
+Avoid:
+
+- literal `Required` badges copied from design notes
+- mixing select-row styling into text or numeric inputs
+- relying on browser-style required affordances alone when the workflow
+  evidence expects application-level validation feedback
+
+Example translation from design annotation to shipped UI:
+
+- Design note: `Product ID Required`
+- Shipped UI: `Product ID *` in the field label plus submit-time validation
+- Not preferred by default: a standalone `Required` badge or pill beside the field
+
+Representative Ionic/Vue implementation:
+
+```vue
+<ion-item>
+  <ion-input v-model="form.productId">
+    <div slot="label">Product ID <ion-text color="danger">*</ion-text></div>
+  </ion-input>
+</ion-item>
+```
+
+Representative required date-entry row:
+
+```vue
+<ion-item button :detail="false" @click="openStartDateModal">
+  <ion-label>Start date <ion-text color="danger">*</ion-text></ion-label>
+  <ion-note slot="end">{{ formattedStartDate }}</ion-note>
+</ion-item>
+```
+
 ## Date Time
 
 Foundation:

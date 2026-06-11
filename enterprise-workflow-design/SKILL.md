@@ -141,9 +141,16 @@ with node `34926:1223` before exploring individual screens or components.
    expressed clearly through the references.
 15. Reuse references by adapting their interaction composition and information
    hierarchy, not by blindly copying the exact visual layout.
-16. State which Figma references informed the design when delivering a new
+16. Treat textual annotations in Figma such as `Required`, helper notes,
+   spacing labels, redlines, and implementation comments as specification
+   guidance unless the live component usage clearly shows they are intended to
+   appear in the shipped UI.
+17. When a form cue or validation treatment is ambiguous in Figma, inspect at
+   least one closest workflow usage and one nearest HotWax code example before
+   deciding how required fields, helper text, or picker triggers should appear.
+18. State which Figma references informed the design when delivering a new
    screen or implementation recommendation.
-17. When a localhost or OFBiz screen is provided alongside Figma references,
+19. When a localhost or OFBiz screen is provided alongside Figma references,
     state whether it was used as a data reference, a UI reference, or both.
 
 ## Figma Editing

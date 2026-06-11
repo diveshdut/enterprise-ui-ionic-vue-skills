@@ -22,19 +22,25 @@ isolation.
      specs, copied layer details, screen recordings, or annotated wireframes.
 2. Implement the provided design artifact with Ionic/Vue while applying
    `ionic-vue-coding-standards`.
-3. Load `enterprise-workflow-design` only when the provided design is
+3. Before translating detailed treatments such as required-field indicators,
+   filter affordances, or date-entry rows, inspect the closest referenced
+   HotWax repo evidence for the same workflow family.
+4. Load `enterprise-workflow-design` only when the provided design is
    incomplete, ambiguous, missing states or responsive variants, or when the
    task requires selecting, comparing, extending, or validating against the
    broader Ionic 8 Material UI Kit or HotWax workflow references. When loaded,
    use its Selection Taxonomy, Pattern Cards, and Design Decision Layer to
    choose the workflow family, Ionic component starting points, required
    states, and responsive treatment.
-4. If `enterprise-workflow-design` is unavailable, do not block. Continue by
+5. If `enterprise-workflow-design` is unavailable, do not block. Continue by
    inspecting the supplied Figma frame or other design artifact directly when
    Figma or file-access tools are available.
-5. Treat existing reference designs as read-only unless an exact modification
+6. Treat existing reference designs as read-only unless an exact modification
    is explicitly authorized.
-6. Implement the reusable composition and behavior, not merely a pixel copy.
+7. Implement the reusable composition and behavior, not merely a pixel copy.
+8. Treat annotations in the design such as `Required`, helper notes, spacing
+   labels, or spec callouts as design guidance first. Convert them into proven
+   Ionic/HotWax patterns rather than rendering them literally by default.
 
 ### When Only Requirements Are Provided
 
@@ -87,6 +93,10 @@ isolation.
 - In create/edit forms, reflect the actual input type in the UI. Do not let
   text, numeric, autocomplete, and multiline fields all inherit select or
   dropdown styling just because a nearby field uses a picker pattern.
+- In create/edit forms, required-state treatment should follow the nearest
+  proven HotWax pattern for that workflow. Prefer label-level asterisks or
+  plain labels plus submit-time validation over decorative `Required` badges
+  unless the shared evidence clearly supports a different pattern.
 - Use compact status chips or badges unless status itself is the main decision
   surface. Do not let status treatment consume more space than the next action,
   exception, or progress summary it supports.

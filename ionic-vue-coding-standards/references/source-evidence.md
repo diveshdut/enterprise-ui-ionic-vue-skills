@@ -22,3 +22,13 @@ code examples or the repo itself only for the specific pattern you need.
 For concrete implementation patterns, start with
 [/references/code-examples.md](/references/code-examples.md)
 before opening additional repo files.
+
+Evidence priority for implementation decisions:
+
+1. Exact user-provided design artifact
+2. Workflow family match from the skill references
+3. Closest referenced HotWax repo files for that workflow
+4. Current app-local examples as a secondary consistency check
+
+Do not let a nearby local example override stronger evidence from the shared
+HotWax repo set when the skills already point to a more relevant workflow.

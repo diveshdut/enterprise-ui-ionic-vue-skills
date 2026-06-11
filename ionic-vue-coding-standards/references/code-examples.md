@@ -75,3 +75,48 @@ component instead of copying the markup into multiple views.
 Example source:
 - [Inventory Count `SessionCountDetail.vue`](https://github.com/hotwax/inventory-count/blob/main/src/views/SessionCountDetail.vue)
 - [Preorder `orders.vue`](https://github.com/hotwax/preorder/blob/main/src/views/orders.vue)
+
+## 5. Required Field Pattern
+
+Use a normal Ionic field label and add a small red asterisk only when the
+shared HotWax evidence shows a visible required cue. Enforce the requirement in
+application validation rather than depending on browser-native affordances
+alone.
+
+Example source:
+- [Fulfillment `CreateCarrier.vue`](https://github.com/hotwax/fulfillment/blob/main/src/views/CreateCarrier.vue)
+- [Fulfillment `CreateShipmentMethodModal.vue`](https://github.com/hotwax/fulfillment/blob/main/src/components/CreateShipmentMethodModal.vue)
+- [Fulfillment `CreateRejectionReasonModal.vue`](https://github.com/hotwax/fulfillment/blob/main/src/components/CreateRejectionReasonModal.vue)
+
+Representative pattern:
+
+```vue
+<ion-item>
+  <ion-input v-model="carrier.groupName">
+    <div slot="label">Name <ion-text color="danger">*</ion-text></div>
+  </ion-input>
+</ion-item>
+```
+
+Representative validation follow-up:
+
+```ts
+if (!carrier.groupName?.trim()) {
+  commonUtil.showToast(translate("Carrier name can not be empty."));
+  return;
+}
+```
+
+Avoid by default:
+- `Required` badges or pills copied from design annotations
+- using a select-row appearance for text or numeric inputs
+- relying on `required` alone when the workflow expects submit-time validation feedback
+
+Required non-text field pattern:
+
+```vue
+<ion-item button :detail="false" @click="openDateModal">
+  <ion-label>Start date <ion-text color="danger">*</ion-text></ion-label>
+  <ion-note slot="end">{{ formattedStartDate }}</ion-note>
+</ion-item>
+```
