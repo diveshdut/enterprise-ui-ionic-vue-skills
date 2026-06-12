@@ -83,6 +83,9 @@ shared HotWax evidence shows a visible required cue. Enforce the requirement in
 application validation rather than depending on browser-native affordances
 alone.
 
+When a visible required cue is used, keep the asterisk tied to the native
+danger semantic style rather than painting a one-off red value.
+
 Example source:
 - [Fulfillment `CreateCarrier.vue`](https://github.com/hotwax/fulfillment/blob/main/src/views/CreateCarrier.vue)
 - [Fulfillment `CreateShipmentMethodModal.vue`](https://github.com/hotwax/fulfillment/blob/main/src/components/CreateShipmentMethodModal.vue)
@@ -120,3 +123,10 @@ Required non-text field pattern:
   <ion-note slot="end">{{ formattedStartDate }}</ion-note>
 </ion-item>
 ```
+
+Use the picker-launch row for date and time fields rather than giving them a
+select-style affordance unless the workflow truly uses a dropdown selector.
+
+When a destructive outline button is the right native pattern, keep both the
+stroke and the label tied to the published danger style instead of repainting
+either piece with a custom red fill.

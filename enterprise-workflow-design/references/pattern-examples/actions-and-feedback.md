@@ -49,6 +49,8 @@ Good:
   variants before changing styling.
 - Keep destructive, cancel, and secondary actions visually consistent with
   existing workflow examples.
+- When a destructive outline button uses the kit's danger treatment, keep the
+  visible label and the stroke linked to the published danger semantic style.
 - When an action belongs to a specific card or execution unit, prefer the
   card's native `Card / Actions` footer pattern before placing a detached
   button elsewhere on the page.
@@ -67,6 +69,9 @@ Example:
 - If the visible button says `Create production run`, the Button instance
   should contain that label in its internal label layer. There should not be a
   separate direct text layer named `Create production run` above the button.
+- If a cancel button appears as an outlined destructive action, keep the
+  button's internal stroke and the label on the published danger style instead
+  of repainting it with a one-off red.
 - In task execution cards, a single `Start` action should live inside the
   native `Card / Actions` footer as the visible positive action. Do not fake it
   with a badge, chip, or `Select` label in the row end slot.

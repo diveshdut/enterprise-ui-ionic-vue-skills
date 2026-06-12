@@ -101,7 +101,8 @@ Use this decision order when a field is mandatory:
 2. Inspect the nearest workflow usage and the closest HotWax code example for
    the same form pattern.
 3. Prefer a label-level required cue such as a red asterisk when the evidence
-   shows a visible required indicator.
+   shows a visible required indicator. Keep that cue linked to the native
+   danger semantic style instead of copying a raw red fill.
 4. Prefer normal field labels plus submit-time validation feedback when the
    shared evidence does not show a persistent required marker.
 5. Do not convert a design annotation like `Required` into a badge or chip
@@ -145,6 +146,10 @@ Representative required date-entry row:
   <ion-note slot="end">{{ formattedStartDate }}</ion-note>
 </ion-item>
 ```
+
+For date and time fields, prefer the picker-launch row pattern above or the
+live Date Time component. Do not give a date-time field a select-style end
+slot unless the workflow explicitly uses a dropdown selector.
 
 ## Date Time
 
