@@ -1,6 +1,6 @@
 ---
 name: ionic-vue-coding-standards
-description: Implement, review, or refactor Ionic Vue application UI with semantic Ionic component composition, reusable styling, responsive mobile-compatible behavior, and maintainable Vue structure. Use for any Ionic/Vue screen, component, navigation shell, UI layout, styling, theme, or frontend code decision, whether implementation starts from Figma, screenshots, exports, wireframes, specs, other design tools, or plain requirements.
+description: Use when implementing, reviewing, or refactoring Ionic Vue screens, components, navigation, layouts, styling, themes, responsive behavior, or Figma-to-code UI.
 ---
 
 # Ionic Vue Coding Standards
@@ -41,6 +41,9 @@ maintain, and works on mobile without depending on elaborate custom styling.
    evidence for that workflow family. Use local app examples only as a
    secondary consistency check, not as the primary evidence source when the
    shared skill references already point to a relevant HotWax application.
+7. When implementing a parent-child management workflow, load
+   `enterprise-workflow-design` and use its parent-child CRUD pattern to keep
+   record, collection, and row actions aligned with the approved design.
 
 ## Non-Negotiable Rules
 
@@ -81,11 +84,19 @@ maintain, and works on mobile without depending on elaborate custom styling.
 - On mobile find/list screens, prefer compact chips or small outline controls
   for filters and sort. Do not make routine query controls look like primary
   full-width actions.
+- Use `ion-datetime` for date and datetime entry; do not substitute
+  `ion-select` when the field is really a picker. A Select-like trigger is
+  acceptable only when it opens an actual `ion-datetime` picker or modal.
+- Use searchable entity selection for large product, party, facility, or other
+  reference sets instead of rendering an impractically long `ion-select`.
 - Use compact status chips or badges in list rows, headers and summaries unless
   status itself is the main workflow decision.
 - Remove duplicate information before implementing. Display each status,
   identifier, quantity, date, or message where it has the most
   decision-making value rather than repeating it across a screen.
+- Keep parent record summary, child collection, and child actions in a clear
+  hierarchy. Put add/remove actions inside the child row or child section when
+  they affect one record in a parent-child relationship.
 - Preserve the target application's existing architecture and shared
   components. Do not migrate state libraries, replace shared CSS, or
   introduce a new shell as incidental work.
@@ -105,6 +116,8 @@ maintain, and works on mobile without depending on elaborate custom styling.
 7. Validate hierarchy, labels, loading, empty, no-results, error, disabled,
    permission/read-only, offline/sync, progress/completion, action
    reachability, vertical density and responsive behavior before finishing.
+   Include narrow-screen checks for Select label/value collisions, segment
+   readability, long identifiers, dates, currency, and translated labels.
 
 ## Supporting References
 

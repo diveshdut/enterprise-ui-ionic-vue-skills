@@ -97,6 +97,16 @@ isolation.
   proven HotWax pattern for that workflow. Prefer label-level asterisks or
   plain labels plus submit-time validation over decorative `Required` badges
   unless the shared evidence clearly supports a different pattern.
+- For row-based management screens, keep row-specific actions inside the row's
+  supported action area whenever the Ionic pattern provides one. Do not model
+  repeated row actions as separate sibling buttons unless the chosen pattern
+  explicitly does so.
+- Keep repeated rows structurally consistent. If one row uses an embedded
+  action or compact control, other equivalent rows in the same list should use
+  the same action structure unless the workflow state genuinely differs.
+- When the design system expresses destructive treatment through a published
+  icon/color override rather than a dedicated button variant, preserve that
+  system treatment instead of inventing custom destructive controls.
 - Use compact status chips or badges unless status itself is the main decision
   surface. Do not let status treatment consume more space than the next action,
   exception, or progress summary it supports.

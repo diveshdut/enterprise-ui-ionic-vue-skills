@@ -46,16 +46,22 @@ Good:
   `Floating Label`, or `Multiline`.
 - Use the `Filled` branch only when the filled surface treatment is present in
   the live reference.
+- Use the live Ionic datetime picker pattern for date and datetime fields; do
+  not model them as `Select` rows just because they open a calendar.
 
 Bad:
 - Draw a form field border and direct labels manually over a hidden Input.
 - Use custom dropdown rows where Select or Item-based select patterns exist.
 - Build a custom select row when the live Item + Select affordance already matches the workflow.
+- Use `Select` for `From date`, `Through date`, or other datetime entry
+  controls when the workflow needs a real Ionic datetime picker.
 
 Example:
 - A create form field such as `Facility` should be an Input or Select instance
   with the label and value inside the component, not a standalone text label
   plus a custom underline.
+- A routing `From date` field should be a live datetime picker control, not a
+  select row with date text styled to look like a picker.
 
 ## Card Compositions
 
@@ -74,6 +80,25 @@ Example:
 - A production summary with selectable tags should start from the card-with-chip
   composition, while a card that asks users to take one explicit action should
   start from card-with-button.
+
+## Parent And Child Collections
+
+Good:
+- Keep the parent record summary or header separate from the repeated child
+  collection.
+- Place child actions, such as add, edit, or delete, inside the child section or
+  row rather than floating them in page chrome.
+- Use the child row to carry the action affordance when the parent already has
+  its own header or summary.
+
+Bad:
+- Mix parent metadata and child row actions into one ambiguous surface.
+- Put delete or add controls outside the child collection when the action
+  clearly belongs to one parent-child relationship.
+
+Example:
+- A routing screen can show the routing header first and then keep product or
+  operation add/remove actions inside the corresponding child list section.
 
 ## Date And Time Picker
 

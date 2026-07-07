@@ -57,6 +57,9 @@ Good:
 - For a task-level primary action such as `Start`, prefer the native positive
   footer action in the card rather than a chip, select affordance, or floating
   page-level control.
+- For child-row deletes or removals, use a small clear/icon-only Button inside
+  the row end slot or child footer. Keep the button real and keep it attached
+  to the child record rather than floating it outside the list.
 
 Bad:
 - Leave placeholder text such as `Button Label` in the layer tree.
@@ -64,6 +67,8 @@ Bad:
 - Make cancel/secondary actions visually hang outside the button group.
 - Use a status chip or select trigger as a stand-in for a primary CTA when the
   workflow actually needs a button-like action.
+- Draw a trash icon or other destructive affordance as loose shapes instead of
+  a real Button instance.
 
 Example:
 - If the visible button says `Create production run`, the Button instance
@@ -75,6 +80,8 @@ Example:
 - In task execution cards, a single `Start` action should live inside the
   native `Card / Actions` footer as the visible positive action. Do not fake it
   with a badge, chip, or `Select` label in the row end slot.
+- In parent/child collections, a delete action should stay with the child row
+  or child card it affects.
 
 ## In-Card Task Actions
 

@@ -1,6 +1,6 @@
 ---
 name: enterprise-workflow-design
-description: Navigate the Ionic 8 Material UI Kit and modern enterprise workflow references in Figma before designing, reviewing, or implementing new enterprise application UI. Use for new Ionic/Figma screens, workflow UX, responsive enterprise patterns, inventory/order/facility/production runs/admin interfaces, and decisions about reusing or extending existing UI patterns.
+description: Use when designing, reviewing, or implementing Ionic enterprise workflows in Figma, including responsive setup, list, detail, parent-child, inventory, order, facility, production, and admin interfaces.
 ---
 
 # Enterprise Workflow Design
@@ -131,6 +131,10 @@ with node `34926:1223` before exploring individual screens or components.
 12. Use the Design Decision Layer to connect the selected UX pattern to Ionic
    components, required states, responsive behavior, and interaction rules
    before inventing new UI.
+   Read
+   [references/parent-child-crud-patterns.md](references/parent-child-crud-patterns.md)
+   when the workflow manages parent records, child collections, associations,
+   or child records that can also be managed independently.
 13. Identify what is being reused before designing:
    - Shell and navigation pattern.
    - Search, filtering, list, or detail pattern.
@@ -139,6 +143,20 @@ with node `34926:1223` before exploring individual screens or components.
 14. Build the new design with existing components and interaction compositions
    wherever they fit. Introduce a new pattern only when the workflow cannot be
    expressed clearly through the references.
+   - Treat date and datetime fields as live Ionic datetime picker controls, not
+     as selects with date text.
+   - Keep one-to-many actions inside the child row, child section, or child
+     footer when the parent already has its own header or summary.
+   - For repeated list rows, embed row-specific actions inside the row's
+     supported end slot or action area instead of placing duplicate sibling
+     buttons beside the row.
+   - For destructive row actions, prefer a live Ionic action control using the
+     design system's destructive or danger treatment. If the kit expresses that
+     treatment through icon/color overrides rather than a dedicated variant, use
+     the published pattern instead of inventing a custom button style.
+   - When a parent summary item already represents the record header, place
+     record-level actions such as edit in the item's supported action area
+     rather than as a parallel floating control.
 15. Reuse references by adapting their interaction composition and information
    hierarchy, not by blindly copying the exact visual layout.
 16. Treat textual annotations in Figma such as `Required`, helper notes,
@@ -180,6 +198,10 @@ with node `34926:1223` before exploring individual screens or components.
 - When an `Item` slot exposes a supported instance swap, prefer swapping in a
   live compact control like a chip, button, or date selector instead of
   redrawing that affordance as custom shapes and text.
+- When repeated `Item` rows need the same action, apply the same embedded
+  action structure to every representative row in the flow. Do not leave one
+  row using a live embedded action while neighboring rows still use placeholder
+  end content or parallel controls.
 - Use list-based sections to organize account-style pages, saved addresses,
   payment methods, and similar repeated profile content. Keep horizontal
   browsing patterns like recent-orders strips separate from the main vertical
@@ -194,6 +216,15 @@ with node `34926:1223` before exploring individual screens or components.
   fills when a published semantic style exists.
 - After creating or updating Figma screens, inspect the screenshot for vertical
   waste, cramped controls, text overlap, and action hierarchy before delivery.
+- Run
+  [references/figma-quality-gates.md](references/figma-quality-gates.md)
+  before approving a created, cloned, or revised frame. Verify component family
+  metadata as well as screenshot appearance.
+- During Figma review, explicitly audit repeated rows and summary headers for
+  duplicate-action drift:
+  - no primitive imitation controls where a live Ionic instance exists
+  - no parallel sibling actions when the component contract supports embedding
+  - no inconsistent action treatment between first and later repeated rows
 - After creating or updating status UI, also inspect node metadata and confirm
   the intended style linkage is still present through `fillStyleId`,
   `textStyleId`, or bound variables rather than only checking screenshot
@@ -238,6 +269,8 @@ with node `34926:1223` before exploring individual screens or components.
 
 Before finalizing a new enterprise UI design or UI implementation plan:
 
+- Pass the Figma quality gates for component authenticity, clone hygiene,
+  control semantics, mobile geometry, and final evidence.
 - Name the user goal and selected reference family.
 - List the primary Figma frames inspected.
 - Note which GitHub repo and first code files would be inspected next when the
