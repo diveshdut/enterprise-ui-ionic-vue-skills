@@ -26,8 +26,9 @@ It brings together:
 The goal is simple: help agents design and code enterprise UIs that are
 consistent, reusable, mobile-friendly, and easy to extend. That is especially
 useful for open-source enterprise automation platforms such as Apache OFBiz
-and Moqui, where contributors need a reliable way to create enterprise UIs
-without inventing a new design language for every app.
+and Moqui, and for enterprise automation apps more broadly, where contributors
+need a reliable way to create enterprise UIs without inventing a new design
+language for every app.
 
 The same approach also helps headless enterprise applications: even when the
 backend is separate, the frontend can still be shaped from reusable Ionic and
@@ -36,12 +37,14 @@ enterprise workflow patterns that keep the experience coherent.
 ## Design Workflow
 
 The `enterprise-workflow-design` skill is the Figma-facing part of the system.
-It helps agents design enterprise UI in Figma when the agent has Figma
-connector access and enough Figma quota to inspect designs reliably.
+It helps agents and designers working with AI agents design enterprise UI in
+Figma when the agent has Figma connector access and enough Figma quota to
+inspect designs reliably.
 
 Figma free-tier access is often too limited for repeated workflow inspection,
 so a paid Figma plan is recommended when this repo is being used for active UI
-design work.
+design work, especially when the workflow depends on repeated inspection,
+editing, or AI-assisted review.
 
 This skill is grounded in the open-source Ionic 8 Material UI kit:
 
