@@ -104,6 +104,9 @@ isolation.
 - Keep repeated rows structurally consistent. If one row uses an embedded
   action or compact control, other equivalent rows in the same list should use
   the same action structure unless the workflow state genuinely differs.
+- Keep parent summaries, child collections, and nested record actions visually
+  distinct. Use one shared hierarchy treatment for repeated levels instead of
+  inventing a new depth style for each screen.
 - When the design system expresses destructive treatment through a published
   icon/color override rather than a dedicated button variant, preserve that
   system treatment instead of inventing custom destructive controls.

@@ -20,16 +20,23 @@
 
 ## CSS Placement
 
-- Never add template inline visual styles through `style=""` or `:style`.
-- Prefer existing global layout/state classes and semantic theme variables.
+- Never add ad hoc inline visual styles through `style=""` or `:style`.
+- Allow a narrow `:style` binding only when it sets CSS custom properties on
+  a shared class and bridges structured state or data into reusable CSS.
+- Keep global theme/app CSS intentionally small. Use it for shared layout
+  primitives, theme tokens, and app-wide state classes.
 - Add a global/shared class when a presentation pattern is expected on
   multiple screens, such as status treatments, detail grids, result layouts,
   empty states, sticky action bars or responsive workspaces.
-- Keep component-local styles only for behavior or composition unique to that
-  component. Do not repeat shared UI conventions inside multiple `.vue`
-  files.
+- Keep page-owned and component-owned presentation inside scoped styles unless
+  the pattern is genuinely shared.
 - Use CSS custom properties from the theme for colors, spacing, elevation and
   radii. Extend shared tokens when a reusable semantic value is missing.
+- Prefer semantic tokens such as `surface-border-color` or `text-muted`
+  instead of raw values like `rgba(0, 0, 0, 0.12)`.
+- For hierarchy or nesting visuals, prefer a shared helper class that reads a
+  CSS custom property such as depth over a hardcoded stack of depth-specific
+  classes.
 
 ## Component Decision
 

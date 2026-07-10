@@ -65,19 +65,26 @@ maintain, and works on mobile without depending on elaborate custom styling.
 - Use semantic Vue components and meaningful content regions. Keep business
   logic out of templates and split independent view responsibilities into
   components when that improves clarity and reuse.
-- Do not use inline template CSS, including `style=""` or visual `:style`
-  bindings. Express reusable visuals through shared component styles, global
-  layout/state classes, or theme variables.
+- Keep global theme/app CSS small and token-focused. Reserve it for shared
+  layout primitives, theme tokens, and app-wide state classes. Move page-owned
+  and component-owned presentation into local scoped styles.
+- Do not use inline template CSS, including `style=""` or ad hoc visual
+  `:style` bindings. A narrow `:style` binding is acceptable only when it sets
+  CSS custom properties on a shared class as a structured bridge from data or
+  state into reusable CSS.
 - Do not use `ion-grid`, `ion-row`, or `ion-col` for application layout. Do
   not build page layouts from chains of Ionic grid/spacing utility classes.
   Use semantic containers with shared CSS Grid or Flexbox rules.
 - Prefer semantic theme variables and shared design tokens over raw colors,
-  shadows, spacing, radii, or visual constants.
+  shadows, spacing, radii, or visual constants, even inside scoped styles.
 - Use custom CSS for structural layout needs that Ionic does not provide
   directly, such as repeated list-row composition, split detail rows, sticky
   action areas, or responsive workspaces. Do not add CSS only to chase
   screenshot-level fidelity when Ionic defaults already satisfy hierarchy and
   usability.
+- For scalable hierarchy styling, prefer one shared helper class driven by CSS
+  custom properties over a hardcoded depth ladder of utility classes. Only cap
+  hierarchy depth when the limit is deliberate and documented.
 - Build every new UI to be mobile compatible. Treat handheld use as primary
   for store-operation flows such as receiving, fulfillment, counting,
   scanning, picking, packing, and transfers.
@@ -118,6 +125,10 @@ maintain, and works on mobile without depending on elaborate custom styling.
    reachability, vertical density and responsive behavior before finishing.
    Include narrow-screen checks for Select label/value collisions, segment
    readability, long identifiers, dates, currency, and translated labels.
+8. For UI-sensitive refactors, serialize the final verification steps that
+   exercise the same local app/backend state. Avoid running a heavy build and a
+   live e2e pass in parallel against the same target when that can cause flaky
+   or misleading failures.
 
 ## Supporting References
 

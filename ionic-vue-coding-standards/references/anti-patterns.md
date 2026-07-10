@@ -4,13 +4,17 @@
 
 - Screens designed around custom CSS tricks instead of Ionic-native controls.
 - `ion-grid`, `ion-row`, or `ion-col` as the page-layout system.
-- Inline CSS or dynamic visual style bindings in templates.
+- Ad hoc inline CSS or visual `:style` bindings in templates. A narrow
+  custom-property binding is acceptable only when it drives shared CSS from
+  structured state.
 - Repeated page-local styles for a pattern that belongs in shared CSS or a
   shared component.
 - Generic `div` controls that replace accessible Ionic buttons, items, inputs,
   overlays or navigation components.
 - Raw color, spacing or shadow values when semantic theme tokens should
   express the design intent.
+- Hardcoded hierarchy-depth classes when one shared helper class plus a CSS
+  custom property can scale the same pattern more cleanly.
 - Desktop layouts that discard or conceal required actions on mobile.
 - Cards and headers that repeat the same status, identifier or timestamp
   without helping the user decide or act.

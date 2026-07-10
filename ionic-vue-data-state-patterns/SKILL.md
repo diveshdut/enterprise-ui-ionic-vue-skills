@@ -42,6 +42,10 @@ when the workflow requires it.
   destructive confirmation.
 - Add persistence, offline databases, device/session identity, job polling or
   simulation state only for workflows that require those capabilities.
+- For UI-sensitive refactors, serialize the final verification steps that hit
+  the same local app/backend state. Avoid running a heavy build and a live e2e
+  pass in parallel against the same target when that can create false
+  negatives or flaky failures.
 - Do not copy backend-specific searches, scheduling contracts or allocation
   behavior into unrelated applications without confirming the domain contract.
 

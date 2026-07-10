@@ -67,6 +67,28 @@ Representative pattern:
 }
 ```
 
+## 3b. Shared Hierarchy Helper
+
+Use a single shared helper with a CSS custom property when a repeated nested
+structure needs scalable indentation or depth styling.
+
+Representative pattern:
+
+```vue
+<div class="app-hierarchy" :style="{ '--app-hierarchy-depth': node.depth }">
+  ...
+</div>
+```
+
+```css
+.app-hierarchy {
+  padding-inline-start: calc(var(--app-hierarchy-depth, 0) * 0.75rem);
+}
+```
+
+Avoid capping hierarchy at a tiny fixed range unless the workflow intentionally
+only supports a few levels and that limit is documented.
+
 ## 4. Component Reuse Over Pasted UI
 
 If the same status card, scan block or action footer repeats, extract a shared
