@@ -95,17 +95,25 @@ directory, or copied into an existing `./agents/skills/` location when needed.
 
 ## How To Use
 
-1. Check out this repository into your project as `.agents/skills/`, or copy
-   the four skill folders into your existing `.agents/skills/` directory.
-2. Move `AGENTS.md` from its current location to the project root when you are
-   using Codex or Cursor.
-3. Move `CLAUDE.md` from its current location to the project root when you are
-   using Claude Code.
+1. Recommended: keep one independent checkout of this repository and use the
+   sync script to copy the four skill folders into each project as needed.
+2. For a single-project setup, you can also check out this repository directly
+   into the target agent skills directory.
+3. Copy `AGENTS.md` into the project root when you are using Codex or Cursor.
+4. Copy `CLAUDE.md` into the project root when you are using Claude Code.
+
+Example setup:
+
+1. Keep this repository in one shared location.
+2. Run `scripts/sync-agent-skills.sh` for each project that should receive the
+   skills.
+3. Add `AGENTS.md` or `CLAUDE.md` to a project root only when that project
+   uses Codex/Cursor or Claude Code.
 
 ## Install Into Agent Skills
 
 Use the sync script when you want to copy these four skills into a project
-instead of checking this repo out directly.
+from one independent checkout of this repository.
 
 ```bash
 ./scripts/sync-agent-skills.sh /path/to/skills-source-root /path/to/project antigravity
@@ -132,6 +140,9 @@ The source root should contain these folders directly:
 - `ionic-vue-coding-standards`
 - `ionic-vue-enterprise-patterns`
 - `ionic-vue-data-state-patterns`
+
+This sync script copies only the four skill folders. Copy `AGENTS.md` or
+`CLAUDE.md` into the project root separately when your agent needs them.
 
 ## Skill Order
 
