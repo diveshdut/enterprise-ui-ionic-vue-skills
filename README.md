@@ -102,6 +102,37 @@ directory, or copied into an existing `./agents/skills/` location when needed.
 3. Move `CLAUDE.md` from its current location to the project root when you are
    using Claude Code.
 
+## Install Into Agent Skills
+
+Use the sync script when you want to copy these four skills into a project
+instead of checking this repo out directly.
+
+```bash
+./scripts/sync-agent-skills.sh /path/to/skills-source-root /path/to/project antigravity
+./scripts/sync-agent-skills.sh /path/to/skills-source-root /path/to/project agents
+./scripts/sync-agent-skills.sh /path/to/skills-source-root /path/to/project claude
+./scripts/sync-agent-skills.sh /path/to/skills-source-root /path/to/project auto
+```
+
+Target folders by agent:
+
+- Antigravity uses `.agent/skills/`
+- Codex and Cursor use `.agents/skills/`
+- Claude Code uses `.claude/skills/`
+
+`auto` chooses the target folder from the project layout:
+
+- if `CLAUDE.md` or `.claude/` exists, it uses `.claude/skills/`
+- else if `.agent/` exists, it uses `.agent/skills/`
+- otherwise it uses `.agents/skills/`
+
+The source root should contain these folders directly:
+
+- `enterprise-workflow-design`
+- `ionic-vue-coding-standards`
+- `ionic-vue-enterprise-patterns`
+- `ionic-vue-data-state-patterns`
+
 ## Skill Order
 
 When relevant, use the skills in this order:
