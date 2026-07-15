@@ -25,6 +25,8 @@ reason.
 ## Find And List Screens
 
 - Put search first, compact query controls second, and results third.
+- Keep repeated search/result rows visually consistent by reusing one shared
+  search/select presentation pattern instead of page-specific variations.
 - Use compact chips, small outline controls, or sheet/popover triggers for
   filter and sort controls on mobile.
 - Reserve full-width buttons for primary workflow actions, not routine filters

@@ -1,6 +1,6 @@
 ---
 name: ionic-vue-enterprise-patterns
-description: Select and implement proven Ionic Vue enterprise workflow UX patterns from HotWax operational and configuration applications. Use when coding or designing screens for fulfillment, receiving, inventory, orders, shipments, preorder, routing, scheduling, manufacturing, administration, or similar business workflows; implement complete exact Figma frames or non-Figma design artifacts directly with Ionic/Vue standards, and use documented patterns plus enterprise-workflow-design when requirements are design-only, design artifacts are missing/incomplete/ambiguous, or broader HotWax/Ionic workflow context is needed.
+description: Use when the task involves Ionic Vue enterprise workflow patterns, especially for fulfillment, receiving, inventory, orders, shipments, preorders, routing, scheduling, manufacturing, or admin workflows.
 ---
 
 # Ionic Vue Enterprise Patterns
@@ -82,6 +82,9 @@ isolation.
 - Prefer workflow compositions already supported by Ionic controls: lists,
   cards, search, chips, segments, alerts, modals, popovers, footers and
   focused detail pages.
+- For repeated search-and-select workflows, standardize on one shared visual
+  pattern and preserve domain-specific typing through wrappers or adapters
+  rather than letting each page invent a new search contract.
 - Map UX patterns to Ionic components before implementation: filters/results
   begin with searchbar, chips, segments and list/item patterns; master-detail
   begins with cards, tabs, accordions and toolbars; scan workflows begin with
@@ -93,6 +96,9 @@ isolation.
 - In create/edit forms, reflect the actual input type in the UI. Do not let
   text, numeric, autocomplete, and multiline fields all inherit select or
   dropdown styling just because a nearby field uses a picker pattern.
+- For date and scheduling inputs, keep the UX predictable. Be explicit about
+  whether the workflow needs inline vs modal date pickers, confirm/cancel
+  actions, and local-time-safe defaults.
 - In create/edit forms, required-state treatment should follow the nearest
   proven HotWax pattern for that workflow. Prefer label-level asterisks or
   plain labels plus submit-time validation over decorative `Required` badges

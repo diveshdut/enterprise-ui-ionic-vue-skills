@@ -37,6 +37,18 @@
 - For hierarchy or nesting visuals, prefer a shared helper class that reads a
   CSS custom property such as depth over a hardcoded stack of depth-specific
   classes.
+- Before adding new page CSS, inspect whether the same spacing, section,
+  results, card, or form treatment already exists and can be reused or
+  generalized.
+- Prefer lean shared utility classes, reusable component-level CSS, or small
+  scoped rules over large page-level style blocks that restyle standard Ionic
+  composition from scratch.
+- Avoid `display: contents` on important layout or semantic wrappers. In
+  enterprise Ionic apps those wrappers often anchor slots, responsive grids,
+  accessibility grouping, and stable test hooks.
+- Follow the production-grade HotWax-style bias: shared layout primitives,
+  focused component CSS, and restrained page-level overrides instead of
+  restyling each page as its own visual system.
 
 ## Component Decision
 
@@ -44,6 +56,28 @@ Create or reuse a shared Vue component when a composition has stable meaning
 and appears repeatedly, such as an item summary card, status/progress display,
 scan input area, history block or filter control. Use shared CSS alone when
 the repeated behavior is only layout or lightweight visual treatment.
+
+For shared search/select architecture, typed wrappers, and adapter boundaries,
+use [shared-search-and-adapters.md](shared-search-and-adapters.md).
+
+## Scope Boundary
+
+- Keep this reference focused on layout, CSS placement, and deciding whether a
+  repeated pattern belongs in shared CSS or a shared Vue component.
+- Use [testability-and-selectors.md](testability-and-selectors.md) for
+  selector strategy and E2E-oriented test hooks instead of duplicating that
+  guidance here.
+
+## CSS Review Check
+
+- Does this style already exist elsewhere in the app?
+- Could the rule live in shared CSS or a reusable component instead?
+- Is the styling generic enough to survive another screen using it?
+- Is this CSS supporting Ionic composition, or compensating for avoidable
+  page-specific markup?
+- Would this wrapper still be useful for semantics, layout, or testability if
+  someone is tempted to flatten it with `display: contents`? If yes, do not
+  flatten it.
 
 ## Responsive Standard
 

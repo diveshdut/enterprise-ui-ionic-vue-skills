@@ -9,6 +9,41 @@
 - Put transformations that produce view-ready groups, progress or status
   collections near store/service retrieval rather than duplicating them
   across templates.
+- Put repeated search-result presentation mapping in shared adapter/helper
+  modules or typed wrapper components rather than rebuilding it in each page.
+
+## Service And Domain Boundaries
+
+- Pages should orchestrate store actions, navigation, and overlay flow.
+- Services should own backend request/response contracts.
+- Shared domain helpers should own repeatable shaping such as search result
+  titles, subtitles, thumbnails, and identifier formatting.
+- Prefer a narrow typed wrapper around a generic base component when it keeps a
+  domain boundary safer than a broad reusable contract.
+
+## Date And Date-Time Boundaries
+
+- Treat local form values, display formatting, and backend payload formatting
+  as different responsibilities.
+- Use one shared front-end date helper module for:
+  - current local date-time values
+  - current local date-only values
+  - backend-to-local date-time parsing
+  - backend-to-local date-only parsing
+  - backend payload serialization
+  - user-facing display formatting
+- Keep page code free of ad hoc `new Date(...)`, `.toISOString()`, and string
+  slicing for API contracts.
+- Mixing date-only and date-time conversions is a common source of timezone
+  bugs and confusing UX defaults.
+- Keep UI state in local form-friendly values and convert to OFBiz timestamps
+  only at the API/service boundary. This avoids timezone drift between user
+  input, on-screen display, and backend payloads.
+
+## Related Reference
+
+- For lookup/reference data that depends on Ionic navigation lifecycle, read
+  [lifecycle-and-lookup-loading.md](lifecycle-and-lookup-loading.md).
 
 ## Architecture Choice
 
@@ -45,3 +80,17 @@
   scan/highlight feedback, sort preference, and completion status separated so
   the picker experience stays responsive while the operational state remains
   reliable.
+
+## E2E Stability
+
+- Treat mutable demo data and backend-integrated flows as shared state, not as
+  isolated pure UI tests.
+- Prefer dedicated fixtures, reset hooks, or unique records per test when the
+  workflow changes backend state.
+- Avoid parallel verification steps that mutate the same records, jobs,
+  sessions, or environment state.
+- When a test mode has real side effects, make cleanup or reset part of the
+  documented workflow rather than an afterthought.
+- For repeated rows and row actions, define `data-testid` values from business
+  identity or association identity so Playwright does not depend on row order
+  or ambiguous repeated text.

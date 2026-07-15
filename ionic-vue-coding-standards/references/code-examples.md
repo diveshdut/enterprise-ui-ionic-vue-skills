@@ -1,10 +1,23 @@
 # Code Examples
 
-These are compact patterns distilled from the HotWax Ionic/Vue repositories.
-Use the linked source files for the full context, but keep new code smaller and
-more reusable than the originals.
+Use this file as a quick index plus a very small sampler. It is not the home
+for general guidance. Load the topic-specific reference first, then use this
+file only for fast pattern recall and source pointers.
 
-## First Files To Inspect
+## Load The Narrow Reference First
+
+- CSS, layout, or component reuse:
+  [css-and-component-reuse.md](css-and-component-reuse.md)
+- Shared search/select architecture:
+  [shared-search-and-adapters.md](shared-search-and-adapters.md)
+- `data-testid` and deterministic E2E coverage:
+  [testability-and-selectors.md](testability-and-selectors.md)
+- Date and date-time field behavior:
+  [date-and-datetime-examples.md](date-and-datetime-examples.md)
+- Common traps and review questions:
+  [anti-patterns.md](anti-patterns.md)
+
+## Quick Source Pointers
 
 - Fulfillment: `src/App.vue`
 - Receiving: `src/views/ShipmentDetails.vue`
@@ -12,7 +25,12 @@ more reusable than the originals.
 - Preorder: `src/views/orders.vue`
 - Order Routing: `src/views/BrokeringRoute.vue`
 
-## 1. App Shell And Page Composition
+## Small Sampler Only
+
+These snippets are intentionally narrow. If a topic needs more than a quick
+memory jog, return to the dedicated reference instead of expanding this file.
+
+## App Shell
 
 Use a minimal Ionic shell and let routing handle the view body.
 
@@ -28,7 +46,7 @@ Representative pattern:
 </ion-app>
 ```
 
-## 2. Mobile Workflow Page
+## Page Composition
 
 Use a page header, then a single semantic content region with a task-focused
 layout inside `main`/`section` wrappers.
@@ -50,7 +68,7 @@ Representative pattern:
 </ion-page>
 ```
 
-## 3. Reusable Layout Class
+## Shared Layout Class
 
 Use shared classes for the layout, not inline style blocks or Ionic grid
 utilities.
@@ -66,89 +84,3 @@ Representative pattern:
   grid-template-columns: minmax(375px, 25%) 1fr;
 }
 ```
-
-## 3b. Shared Hierarchy Helper
-
-Use a single shared helper with a CSS custom property when a repeated nested
-structure needs scalable indentation or depth styling.
-
-Representative pattern:
-
-```vue
-<div class="app-hierarchy" :style="{ '--app-hierarchy-depth': node.depth }">
-  ...
-</div>
-```
-
-```css
-.app-hierarchy {
-  padding-inline-start: calc(var(--app-hierarchy-depth, 0) * 0.75rem);
-}
-```
-
-Avoid capping hierarchy at a tiny fixed range unless the workflow intentionally
-only supports a few levels and that limit is documented.
-
-## 4. Component Reuse Over Pasted UI
-
-If the same status card, scan block or action footer repeats, extract a shared
-component instead of copying the markup into multiple views.
-
-Example source:
-- [Inventory Count `SessionCountDetail.vue`](https://github.com/hotwax/inventory-count/blob/main/src/views/SessionCountDetail.vue)
-- [Preorder `orders.vue`](https://github.com/hotwax/preorder/blob/main/src/views/orders.vue)
-
-## 5. Required Field Pattern
-
-Use a normal Ionic field label and add a small red asterisk only when the
-shared HotWax evidence shows a visible required cue. Enforce the requirement in
-application validation rather than depending on browser-native affordances
-alone.
-
-When a visible required cue is used, keep the asterisk tied to the native
-danger semantic style rather than painting a one-off red value.
-
-Example source:
-- [Fulfillment `CreateCarrier.vue`](https://github.com/hotwax/fulfillment/blob/main/src/views/CreateCarrier.vue)
-- [Fulfillment `CreateShipmentMethodModal.vue`](https://github.com/hotwax/fulfillment/blob/main/src/components/CreateShipmentMethodModal.vue)
-- [Fulfillment `CreateRejectionReasonModal.vue`](https://github.com/hotwax/fulfillment/blob/main/src/components/CreateRejectionReasonModal.vue)
-
-Representative pattern:
-
-```vue
-<ion-item>
-  <ion-input v-model="carrier.groupName">
-    <div slot="label">Name <ion-text color="danger">*</ion-text></div>
-  </ion-input>
-</ion-item>
-```
-
-Representative validation follow-up:
-
-```ts
-if (!carrier.groupName?.trim()) {
-  commonUtil.showToast(translate("Carrier name can not be empty."));
-  return;
-}
-```
-
-Avoid by default:
-- `Required` badges or pills copied from design annotations
-- using a select-row appearance for text or numeric inputs
-- relying on `required` alone when the workflow expects submit-time validation feedback
-
-Required non-text field pattern:
-
-```vue
-<ion-item button :detail="false" @click="openDateModal">
-  <ion-label>Start date <ion-text color="danger">*</ion-text></ion-label>
-  <ion-note slot="end">{{ formattedStartDate }}</ion-note>
-</ion-item>
-```
-
-Use the picker-launch row for date and time fields rather than giving them a
-select-style affordance unless the workflow truly uses a dropdown selector.
-
-When a destructive outline button is the right native pattern, keep both the
-stroke and the label tied to the published danger style instead of repainting
-either piece with a custom red fill.
